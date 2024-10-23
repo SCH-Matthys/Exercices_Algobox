@@ -1,0 +1,204 @@
+FONCTIONS_UTILISEES
+VARIABLES
+X EST_DU_TYPE CHAINE
+Z EST_DU_TYPE NOMBRE
+N EST_DU_TYPE CHAINE
+DEBUT_ALGORITHME
+Z PREND_LA_VALEUR 1
+AFFICHER "JEU DU PIERRE - FEUILLE - CISEAUX"
+AFFICHER* " "
+AFFICHER* " "
+AFFICHER "But du jeu :"
+AFFICHER* " "
+AFFICHER "Avoir une main plus forte que celle de l'adversaire"
+AFFICHER* " "
+AFFICHER* " "
+AFFICHER "Mains possibles :"
+AFFICHER* " "
+AFFICHER* " "
+AFFICHER "PIERRE :"
+AFFICHER* " "
+AFFICHER "PIERRE gagne contre les CISEAUX"
+AFFICHER* " "
+AFFICHER "PIERRE perd contre la FEUILLE"
+AFFICHER* " "
+AFFICHER* " "
+AFFICHER "FEUILLE :"
+AFFICHER* " "
+AFFICHER "FEUILLE gagne contre les PIERRE"
+AFFICHER* " "
+AFFICHER "FEUILLE perd contre la CISEAUX"
+AFFICHER* " "
+AFFICHER* " "
+AFFICHER "CISEAUX :"
+AFFICHER* " "
+AFFICHER "CISEAUX gagne contre les FEUILLE"
+AFFICHER* " "
+AFFICHER "CISEAUX perd contre la PIERRE"
+AFFICHER* " "
+AFFICHER* " "
+AFFICHER "Taper 1 pour : PIERRE"
+AFFICHER* " "
+AFFICHER "Taper 2 pour : FEUILLE"
+AFFICHER* " "
+AFFICHER "Taper 3 pour : CISEAUX"
+TANT_QUE (Z == 1) FAIRE
+	DEBUT_TANT_QUE
+	X PREND_LA_VALEUR ALGOBOX_ALEA_ENT(1,3)
+	AFFICHER* " "
+	LIRE N
+	SI (N == X) ALORS
+			DEBUT_SI
+			SI (X == 1) ALORS
+				DEBUT_SI
+				X PREND_LA_VALEUR "la PIERRE"
+				N PREND_LA_VALEUR "la PIERRE"
+				FIN_SI
+			SI (X == 2) ALORS
+				DEBUT_SI
+				X PREND_LA_VALEUR "la FEUILLE"
+				N PREND_LA_VALEUR "la FEUILLE"
+				FIN_SI
+			SI (X == 3) ALORS
+				DEBUT_SI
+				X PREND_LA_VALEUR "les CISEAUX"
+				N PREND_LA_VALEUR "les CISEAUX"
+				FIN_SI
+			AFFICHER "Tu as pris "
+			AFFICHER N
+			AFFICHER " contre "
+			AFFICHER X
+			AFFICHER* " "
+			AFFICHER "C'est un match nul ! Recommencez !"
+		FIN_SI
+		SINON
+			DEBUT_SINON
+			SI (X == 1 ET N == 2 OU X == 2 ET N == 3 OU X == 3 ET N == 1) ALORS
+				DEBUT_SI
+				SI (X == 1 ET N == 2) ALORS
+					DEBUT_SI
+					X PREND_LA_VALEUR "la PIERRE"
+					N PREND_LA_VALEUR "la FEUILLE"
+					FIN_SI
+				SI (X == 2 ET N == 3) ALORS
+					DEBUT_SI
+					X PREND_LA_VALEUR "la FEUILLE"
+					N PREND_LA_VALEUR "les CISEAUX"
+					FIN_SI
+				SI (X == 3 ET N == 1) ALORS
+					DEBUT_SI
+					X PREND_LA_VALEUR "les CISEAUX"
+					N PREND_LA_VALEUR "la PIERRE"
+					FIN_SI
+					AFFICHER "Tu as pris "
+					AFFICHER N
+					AFFICHER " contre "
+					AFFICHER X
+					AFFICHER* " "
+					AFFICHER "Tu as gagné !"
+					Z PREND_LA_VALEUR 0
+				FIN_SI
+				SINON
+					DEBUT_SINON
+					SI (X == 2 ET N == 1) ALORS
+						DEBUT_SI
+						X PREND_LA_VALEUR "la FEUILLE"
+						N PREND_LA_VALEUR "la PIERRE"
+						FIN_SI
+					SI (X == 3 ET N == 2) ALORS
+						DEBUT_SI
+						X PREND_LA_VALEUR "les CISEAUX"
+						N PREND_LA_VALEUR "la FEUILLE"
+						FIN_SI
+					SI (X == 1 ET N == 3) ALORS
+						DEBUT_SI
+						X PREND_LA_VALEUR "la PIERRE"
+						N PREND_LA_VALEUR "les CISEAUX"
+						FIN_SI
+						AFFICHER "Tu as pris "
+						AFFICHER N
+						AFFICHER " contre "
+						AFFICHER X
+						AFFICHER* " "
+						AFFICHER "Tu as perdu !"
+						Z PREND_LA_VALEUR 0
+					FIN_SINON
+			FIN_SINON
+	FIN_TANT_QUE
+FIN_ALGORITHME
+
+
+
+
+
+
+
+FONCTIONS_UTILISEES
+VARIABLES
+	X EST_DU_TYPE NOMBRE
+	N EST_DU_TYPE NOMBRE
+DEBUT_ALGORITHME
+	AFFICHER "Chacun votre tour, prennez entre 1,2 et 3 battons."
+	AFFICHER* " "
+	AFFICHER "Le nombre de battons va diminuer au cours de la partie."
+	AFFICHER* " "
+	AFFICHER "Celui qui prend le dernier batton à perdu !"
+	AFFICHER* " "
+	AFFICHER "Le nombre initial de battons et de : "
+	X PREND_LA_VALEUR 16
+	AFFICHER X
+	AFFICHER* " "
+	AFFICHER* " "
+	AFFICHER "////////////////////////////////////////////////////////////////////////////"
+	AFFICHER* " "
+	TANT_QUE (X > 0) FAIRE
+		DEBUT_TANT_QUE
+		AFFICHER* " "
+		AFFICHER "Nombre de battons restants : "
+		AFFICHER X
+		AFFICHER* " "
+		AFFICHER "J1 prend entre 1, 2 ou 3"
+		LIRE N
+		TANT_QUE (N > 3 OU N < 1) FAIRE
+			DEBUT_TANT_QUE
+			AFFICHER* " "
+			AFFICHER "Entre 1 2 ou 3"
+			LIRE N
+			FIN_TANT_QUE
+		X PREND_LA_VALEUR X -N
+		SI (X <= 0) ALORS
+			DEBUT_SI
+			AFFICHER* " "
+			AFFICHER "Nombre de battons restants : "
+			X PREND_LA_VALEUR 0
+			AFFICHER X
+			AFFICHER* " "
+			AFFICHER "J1 a pris le dernier batton il a perdu !"
+			FIN_SI
+		SINON
+			DEBUT_SINON
+			AFFICHER* " "	
+			AFFICHER "Nombre de battons restants : "
+			AFFICHER X
+			AFFICHER* " "
+			AFFICHER "J2 prend entre 1, 2 ou 3"
+			LIRE N
+			TANT_QUE (N > 3 OU N < 1) FAIRE
+				DEBUT_TANT_QUE
+				AFFICHER* " "
+				AFFICHER "Entre 1 2 ou 3"
+				LIRE N
+				FIN_TANT_QUE
+			X PREND_LA_VALEUR X -N
+			SI (X <= 0) ALORS
+				DEBUT_SI
+				AFFICHER* " "
+				AFFICHER "Nombre de battons restants : "
+				X PREND_LA_VALEUR 0
+				AFFICHER X
+				AFFICHER* " "
+				AFFICHER "J2 a pris le dernier batton il a perdu !"
+				FIN_SI
+			FIN_SINON
+	FIN_TANT_QUE
+FIN_ALGORITHME
